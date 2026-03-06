@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Terms & Policies | The Kirti Consultancy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f4f7fc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* ---------- NAVBAR - PROPERLY RESPONSIVE ---------- */
+        .navbar {
+            position: sticky;
+            top: 16px;
+            width: calc(100% - 32px);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 80px;
+            box-shadow: 0 15px 35px -10px rgba(0, 25, 60, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 8px 18px -5px #667eea;
+            transition: 0.3s;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        /* desktop menu */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #1a1f36;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            white-space: nowrap;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px -8px #667eea;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -10px #667eea;
+        }
+
+        /* hamburger - hidden on desktop */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid white;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: white;
+            border-radius: 4px;
+            transition: 0.25s;
+        }
+        .hamburger span:nth-child(2) {
+            margin: 4px 0;
+        }
+
+        /* mobile menu panel */
+        .mobile-menu {
+            position: fixed;
+            top: 90px;
+            left: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 25px 20px;
+            box-shadow: 0 30px 50px -20px #0f2b4b;
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .mobile-menu a {
+            color: #0b1e42;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 16px 20px;
+            border-radius: 60px;
+            background: #f0f4fe;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .mobile-menu a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* ---------- POLICY CONTENT (unchanged, responsive) ---------- */
+        .policy-container {
+            max-width: 1000px;
+            width: calc(100% - 32px);
+            margin: 30px auto 50px;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(145deg, #0b1e42, #1e3c72);
+            color: white;
+            padding: 2rem 2rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1.2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .content {
+            padding: 2rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e9eef3;
+            padding-bottom: 1.5rem;
+        }
+        .section:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0f2b4b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .section h2 span { font-size: 2rem; }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 1rem;
+            color: #2d3c5e;
+        }
+        .section li::before {
+            content: "•";
+            color: #4f6af5;
+            font-weight: 700;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .contact-block {
+            background: #f0f4fe;
+            border-radius: 30px;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border: 1px solid #ccdafb;
+        }
+        .contact-block p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .contact-block a {
+            color: #1e3c72;
+            font-weight: 600;
+            border-bottom: 1px dashed #4f6af5;
+            text-decoration: none;
+        }
+        hr {
+            border: none;
+            border-top: 2px dotted #b7c3da;
+            margin: 2rem 0 1rem;
+        }
+
+        /* ---------- FOOTER (already responsive) ---------- */
+        .footer {
+            background: #0b1e42;
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateY(-5px) rotate(360deg);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.7);
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* ---------- RESPONSIVE BREAKPOINTS ---------- */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            /* hide desktop menu, show hamburger */
+            .nav-menu {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .navbar {
+                padding: 10px 20px;
+            }
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                padding: 1.5rem 1.2rem;
+            }
+            .content {
+                padding: 1.5rem 1.2rem;
+            }
+            .section h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 8px 16px;
+                width: calc(100% - 20px);
+            }
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            .logo-text {
+                font-size: 1rem;
+            }
+            .hamburger {
+                width: 40px;
+                height: 40px;
+            }
+            .hamburger span {
+                width: 20px;
+            }
+            .mobile-menu a {
+                font-size: 1.1rem;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - Properly Responsive -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">K</div>
+            <span class="logo-text">The Kirti Consultancy</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pathways">Pathways</a>
+                <a href="index.html#testimonials">Stories</a>
+                <a href="index.html#contact">Connect</a>
+            </div>
+            <a href="index.html#contact" class="nav-cta">Get Started</a>
+        </div>
+
+        <!-- Hamburger for mobile -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">🏠 Home</a>
+        <a href="index.html#services">✨ Services</a>
+        <a href="index.html#pathways">🛤️ Pathways</a>
+        <a href="index.html#testimonials">📣 Stories</a>
+        <a href="index.html#contact">📞 Connect</a>
+    </div>
+
+    <!-- Policy Content -->
+    <div class="policy-container">
+        <div class="header">
+            <h1>📋 terms & policies</h1>
+            <p>last updated: march 2025 · the kirti consultancy (dsa partner)</p>
+            <div class="badge-container">
+                <span class="badge">⚖️ neutral language</span>
+                <span class="badge">🔒 client friendly</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- section 1 -->
+            <div class="section">
+                <h2><span>🤝</span> 1. nature of our role</h2>
+                <ul>
+                    <li>We act as a facilitator between you and reputable financial institutions / lenders.</li>
+                    <li>We are not a lender or credit provider. All final decisions, terms, and conditions are determined solely by the respective institution.</li>
+                    <li>Our service is limited to application assistance, documentation guidance, and connecting you with potential partners.</li>
+                </ul>
+            </div>
+
+            <!-- section 2 -->
+            <div class="section">
+                <h2><span>📌</span> 2. no guarantee of approval</h2>
+                <ul>
+                    <li>Any application may be accepted or rejected by the partner institution based on their internal policies, eligibility criteria, and verification.</li>
+                    <li>We do not promise or guarantee that any application will be approved or processed within a specific timeframe.</li>
+                    <li>Approval, amount, tenure, and any applicable charges are at the sole discretion of the institution.</li>
+                </ul>
+            </div>
+
+            <!-- section 3 -->
+            <div class="section">
+                <h2><span>📄</span> 3. your responsibility</h2>
+                <ul>
+                    <li>You agree to provide accurate, complete, and truthful information and documents.</li>
+                    <li>Any false, misleading, or incomplete information may result in rejection or cancellation of the application.</li>
+                    <li>You are responsible for updating us in case of any change in your contact details.</li>
+                </ul>
+            </div>
+
+            <!-- section 4 -->
+            <div class="section">
+                <h2><span>💰</span> 4. applicable charges</h2>
+                <ul>
+                    <li>Any processing fees, verification charges, or other costs, if applicable, are levied by the partner institution and will be communicated upfront.</li>
+                    <li>We do not charge any hidden fees for our facilitation service. Any service fee, if agreed, will be clearly disclosed before submission.</li>
+                    <li>Third-party charges (e.g., government fees, legal costs) are separate and not collected by us.</li>
+                </ul>
+            </div>
+
+            <!-- section 5 -->
+            <div class="section">
+                <h2><span>📞</span> 5. communication & consent</h2>
+                <ul>
+                    <li>By submitting your details, you consent to being contacted by us and our partner institutions via call, SMS, WhatsApp, email, or other electronic means.</li>
+                    <li>You agree to receive service‑related updates and offers relevant to your inquiry.</li>
+                    <li>You may withdraw consent at any time by contacting us, though it may affect the processing of your application.</li>
+                </ul>
+            </div>
+
+            <!-- section 6 -->
+            <div class="section">
+                <h2><span>🏛️</span> 6. independence from lenders</h2>
+                <ul>
+                    <li>We are an independent facilitator and not a branch or representative of any bank / NBFC.</li>
+                    <li>All agreements, contracts, or terms are directly between you and the institution you choose.</li>
+                    <li>We are not liable for any actions, omissions, or policies of the partner institution.</li>
+                </ul>
+            </div>
+
+            <!-- section 7 -->
+            <div class="section">
+                <h2><span>↩️</span> 7. cancellation & refunds</h2>
+                <ul>
+                    <li>If you wish to cancel your application, please inform us within 24 hours of submission. We will request the partner institution to cancel, but we cannot guarantee their consent.</li>
+                    <li>Any fees already charged by the institution are subject to their own refund policy. We are not responsible for those charges.</li>
+                    <li>In the rare case that we have collected a facilitation fee (with prior written agreement), it will be refunded fully if the application is not forwarded to any institution.</li>
+                </ul>
+            </div>
+
+            <!-- section 8 -->
+            <div class="section">
+                <h2><span>⚖️</span> 8. limitation of liability</h2>
+                <ul>
+                    <li>To the maximum extent permitted by law, we shall not be held liable for any direct, indirect, or consequential damages arising from the use of our service or from any rejection, delay, or change in institution policies.</li>
+                    <li>Our total liability, if any, shall not exceed the amount of facilitation fee paid by you (if any).</li>
+                </ul>
+            </div>
+
+            <!-- section 9 -->
+            <div class="section">
+                <h2><span>🔄</span> 9. changes to these terms</h2>
+                <ul>
+                    <li>We may update these terms from time to time. The latest version will always be available on this page.</li>
+                    <li>Your continued use of our service after changes constitutes acceptance of the updated terms.</li>
+                </ul>
+            </div>
+
+            <!-- section 10 -->
+            <div class="section">
+                <h2><span>📍</span> 10. governing law & jurisdiction</h2>
+                <ul>
+                    <li>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Surat, Gujarat.</li>
+                </ul>
+            </div>
+
+            <!-- contact block -->
+            <div class="contact-block">
+                <p><strong>📬 have any questions?</strong> — we're here to clarify.</p>
+                <p>📞 +91 79906 22261 (10 AM – 7 PM, Mon–Sat)</p>
+                <p>✉️ <a href="mailto:kirtifinance09@gmail.com">kirtifinance09@gmail.com</a> (reply within 24h)</p>
+                <p>🏢 office 1: shop u/2, bhagvati residency, bhestan, surat — 395023</p>
+                <p>🏢 office 2: shop 2, aai ji complex, dindoli, surat — 394210</p>
+            </div>
+
+            <hr>
+            <p style="font-size: 0.9rem;"><span style="background:#eef2ff; padding:2px 8px; border-radius:20px;">📌 policy key</span> — neutral language, no restricted terms.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>The Kirti Consultancy</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pathways">Pathways</a></li>
+                    <li><a href="index.html#testimonials">Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pathways</h4>
+                <ul>
+                    <li><a href="index.html#pathways">Home Solution</a></li>
+                    <li><a href="index.html#pathways">Mortgage Assist</a></li>
+                    <li><a href="index.html#pathways">Business Capital</a></li>
+                    <li><a href="index.html#pathways">Personal Assistance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="terms-and-conditions.html">📜 Terms & Conditions</a></li>
+                    <li><a href="refund-policy.html">↩️ Refund Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="index.html#contact">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">🔗</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 The Kirti Consultancy. | <a href="terms-and-conditions.html">Terms</a> | <a href="refund-policy.html">Refund</a> | <a href="#">Privacy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle - proper functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'flex') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'flex';
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.style.display = 'none';
+            });
+        });
+
+        // Close mobile menu when clicking outside (optional but nice)
+        window.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 15px 35px -10px rgba(0,25,50,0.25)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 15px 35px -10px rgba(0,20,40,0.2)';
+            }
+        });
+    </script>
+</body>
+</html>
